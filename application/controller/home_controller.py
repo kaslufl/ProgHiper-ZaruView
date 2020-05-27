@@ -3,5 +3,5 @@ from flask import render_template
 
 @app.route("/")
 @app.route("/home")
-def helllo():
+def home():
     return render_template("home.html")
