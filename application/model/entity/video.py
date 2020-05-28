@@ -9,7 +9,7 @@ class Video:
         self._id = codigo
         self._visualizacoes = 0
         self._curtidas = 0
-        self._comentarios = {}
+        self._comentarios = []
     
     def get_video_URL(self):
         return self._video_URL
@@ -36,7 +36,7 @@ class Video:
         return self._curtidas
 
     def get_comentario(self):
-        return self._comentario
+        return self._comentarios
 
     class Comentario:
         
