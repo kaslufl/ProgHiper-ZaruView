@@ -1,6 +1,6 @@
 class Video:
 
-    def __init__(self, video_URl, thumbnail_URL, titulo, descricao, data_publicacao, codigo): 
+    def __init__(self, video_URL, thumbnail_URL, titulo, descricao, data_publicacao, codigo): 
         self._video_URL = video_URL 
         self._thumbnail_URL = thumbnail_URL
         self._titulo = titulo
@@ -9,7 +9,7 @@ class Video:
         self._id = codigo
         self._visualizacoes = 0
         self._curtidas = 0
-        self._comentarios = []
+        self._comentarios = {}
     
     def get_video_URL(self):
         return self._video_URL

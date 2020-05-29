@@ -1,25 +1,55 @@
 {% extends 'base.html' %}
 {% block title %}ZaruView{% endblock %}
 {% block body %}
+
 <!-- Barra de Pesquisa -->
 <div class="container">
-    <div class="col">
-        <form>
+    <div class="col" style="padding: 10px">
+        <form  action="home/?" onsubmit="return submitForm(this);">
             <div class="form-row justify-content-center">
               <div class="col-9">
                 <label class="sr-only" for="inlineFormInput">Titulo
                 </label>
-                <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Digite o título do vídeo a ser pesquisado">
+                <input type="text" name="titulo" class="form-control mb-2" id="inlineFormInput" placeholder="Digite o título do vídeo a ser pesquisado">
               </div>
             </div>
           </form>
     </div>
 </div>
 <!-- Lista de Videos Mais Curtidos -->
-<div class="container">
-    <div class="row">
-
+<div class="container" id="pesquisa" style="padding: 15px;">
+    <div class="row justify-content-center" id="maisCurtidos">
+      {% for video in videos_mais_curtidos %}
+        <a href="{{url_for('video', id=video.get_id())}}" style="padding: 5px;">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{url_for('static', filename=video.get_thumbnail_URL())}}" alt="Card image cap">
+            <div class="card-header">
+              {{video.get_titulo()}}
+            </div>
+            <div class="card-body">
+              {{video.get_curtidas()}} curtidas
+              {{video.get_visualizacoes()}} views
+            </div>
+          </div>
+        </a>
+      {% endfor %}
     </div>
+</div>
+<!--Lista de Categorias-->
+<div class="container">
+  <div class="row justify-content-center"><h3>Categorias</h3></div>
+  <div class="row justify-content-center" id="categorias">
+    {% for categoria in lista_categorias %}
+      <a href="{{url_for('categoria', id=categoria.get_id())}}" style="padding: 5px;">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="{{url_for('static', filename=categoria.get_thumbnail_URL())}}" alt="Card image cap">
+          <div class="card-header">
+            {{categoria.get_titulo()}}
+          </div>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
 </div>
 
 {% endblock %}

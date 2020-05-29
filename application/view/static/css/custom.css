@@ -4,4 +4,8 @@ a {
 
 a:hover {
     color:#4b0082 !important;
+    text-decoration: none !important;
+}
+h3{
+    color:#ffffff !important;
 }

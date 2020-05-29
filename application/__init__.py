@@ -6,3 +6,5 @@ static_folder = os.path.abspath("application/view/static"),
 template_folder = os.path.abspath("application/view/templates"))
 
 from application.controller import home_controller
+from application.controller import video_controller
+from application.controller import categoria_controller

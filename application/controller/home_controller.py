@@ -7,4 +7,7 @@ from application.model.dao.categoria_dao import CategoriaDAO
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    categoriaDAO = CategoriaDAO()
+    videos_mais_curtidos = sorted(categoriaDAO.listar_todos_videos(), key=Video.get_curtidas, reverse=True)
+    lista_categorias = categoriaDAO.listar_todos_categoria()
+    return render_template("home.html", videos_mais_curtidos = videos_mais_curtidos, lista_categorias = lista_categorias)
