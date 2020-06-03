@@ -2,12 +2,21 @@ from application import app
 from flask import render_template, request
 from application.model.entity.video import Video
 from application.model.entity.categoria import Categoria
-from application.model.dao.categoria_dao import CategoriaDAO
+from application import categoria_dao
+
+
 
 @app.route("/")
 @app.route("/home")
 def home():
-    categoriaDAO = CategoriaDAO()
-    videos_mais_curtidos = sorted(categoriaDAO.listar_todos_videos(), key=Video.get_curtidas, reverse=True)
-    lista_categorias = categoriaDAO.listar_todos_categoria()
+    videos_mais_curtidos = sorted(categoria_dao.listar_todos_videos(), key=Video.get_curtidas, reverse=True)
+    lista_categorias = categoria_dao.listar_todos_categoria()
     return render_template("home.html", videos_mais_curtidos = videos_mais_curtidos, lista_categorias = lista_categorias)
+
+@app.route("/ajax")
+def ajax(titulo):
+    resultado_pesquisa = categoria_dao.listar_todos_videos()
+    for video in lst:
+        if video.get_titulo() == titulo:
+            resultado_pesquisa.append(video)
+    return render_template("pesquisa.html", resultado_pesquisa = resultado_pesquisa)

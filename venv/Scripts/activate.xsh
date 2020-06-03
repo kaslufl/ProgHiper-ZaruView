@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"C:\Users\TI\Desktop\Projetos\ProgHiper-ZaruView\venv"
+$VIRTUAL_ENV = r"C:\Users\Zaruri\Desktop\ProgHiper-ZaruView\venv"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]

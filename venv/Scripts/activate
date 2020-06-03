@@ -46,7 +46,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV='C:\Users\TI\Desktop\Projetos\ProgHiper-ZaruView\venv'
+VIRTUAL_ENV='C:\Users\Zaruri\Desktop\ProgHiper-ZaruView\venv'
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

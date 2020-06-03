@@ -1,7 +1,7 @@
 class Categoria:
 
-    def __init__(self, lista_videos, thumbnail_URL, titulo, descricao, codigo):
-        self._lista_videos = lista_videos
+    def __init__(self, thumbnail_URL, titulo, descricao, codigo):
+        self._lista_videos = []
         self._thumbnail_URL = thumbnail_URL
         self._titulo = titulo
         self._descricao = descricao
@@ -21,3 +21,6 @@ class Categoria:
 
     def get_id(self):
         return self._id
+    
+    def set_video(self, video):
+        self._lista_videos.append(video)

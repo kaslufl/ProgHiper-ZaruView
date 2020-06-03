@@ -4,8 +4,8 @@
 
 <!-- Barra de Pesquisa -->
 <div class="container">
-    <div class="col" style="padding: 10px">
-        <form  action="home/?" onsubmit="return submitForm(this);">
+    <div class="col" id="form">
+        <form  action="{{url_for('ajax', titulo=titulo)}}" onsubmit="return submitForm(this);">
             <div class="form-row justify-content-center">
               <div class="col-9">
                 <label class="sr-only" for="inlineFormInput">Titulo
@@ -17,10 +17,10 @@
     </div>
 </div>
 <!-- Lista de Videos Mais Curtidos -->
-<div class="container" id="pesquisa" style="padding: 15px;">
-    <div class="row justify-content-center" id="maisCurtidos">
+<div class="container" id="pesquisa">
+    <div class="row justify-content-center" id="feed">
       {% for video in videos_mais_curtidos %}
-        <a href="{{url_for('video', id=video.get_id())}}" style="padding: 5px;">
+        <a href="{{url_for('video', id=video.get_id())}}">
           <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="{{url_for('static', filename=video.get_thumbnail_URL())}}" alt="Card image cap">
             <div class="card-header">
@@ -40,7 +40,7 @@
   <div class="row justify-content-center"><h3>Categorias</h3></div>
   <div class="row justify-content-center" id="categorias">
     {% for categoria in lista_categorias %}
-      <a href="{{url_for('categoria', id=categoria.get_id())}}" style="padding: 5px;">
+      <a href="{{url_for('categoria', id=categoria.get_id())}}">
         <div class="card" style="width: 18rem;">
           <img class="card-img-top" src="{{url_for('static', filename=categoria.get_thumbnail_URL())}}" alt="Card image cap">
           <div class="card-header">
@@ -51,5 +51,18 @@
     {% endfor %}
   </div>
 </div>
+<script>
+  let xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if(xhr.readyState == 4 && xhr.status == 200) {
+      document.getElementById("feed").innerHTML = xhr.response;
+      }
+    }
+  formElement.getAttribute('name') = titulo
+  xhr.open("GET", "/ajax");
+  xhr.setRequestHeader("Accept", "text/html")
+  xhr.send();
+
+</script>
 
 {% endblock %}

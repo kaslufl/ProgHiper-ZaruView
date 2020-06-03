@@ -1,0 +1,14 @@
+{% for video in resultado_pesquisa %}
+    <a href="{{url_for('video', id=video.get_id())}}">
+        <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{url_for('static', filename=video.get_thumbnail_URL())}}" alt="Card image cap">
+        <div class="card-header">
+            {{video.get_titulo()}}
+        </div>
+        <div class="card-body">
+            {{video.get_curtidas()}} curtidas
+            {{video.get_visualizacoes()}} views
+        </div>
+        </div>
+    </a>
+{% endfor %}

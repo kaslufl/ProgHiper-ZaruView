@@ -1,15 +1,17 @@
+from application.model.entity import categoria
 class Video:
 
-    def __init__(self, video_URL, thumbnail_URL, titulo, descricao, data_publicacao, codigo): 
+    def __init__(self, video_URL, thumbnail_URL, titulo, descricao, data_publicacao, categoria, codigo): 
         self._video_URL = video_URL 
         self._thumbnail_URL = thumbnail_URL
         self._titulo = titulo
         self._descricao = descricao
         self._data_publicacao = data_publicacao
+        self._categoria = categoria
         self._id = codigo
         self._visualizacoes = 0
         self._curtidas = 0
-        self._comentarios = {}
+        self._comentarios = []
     
     def get_video_URL(self):
         return self._video_URL
@@ -25,6 +27,9 @@ class Video:
     
     def get_data_publicacao(self):
         return self._data_publicacao
+
+    def get_categoria(self):
+        return self._categoria.get_titulo()
     
     def get_id(self):
         return self._id

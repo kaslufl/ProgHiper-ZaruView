@@ -1,6 +1,6 @@
 @echo off
 
-set "VIRTUAL_ENV=C:\Users\TI\Desktop\Projetos\ProgHiper-ZaruView\venv"
+set "VIRTUAL_ENV=C:\Users\Zaruri\Desktop\ProgHiper-ZaruView\venv"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"
