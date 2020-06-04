@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}ZaruView{% endblock %}
 {% block body %}
-
 <!-- Barra de Pesquisa -->
 <div class="container">
     <div class="col" id="form">
@@ -27,14 +26,21 @@
               {{video.get_titulo()}}
             </div>
             <div class="card-body">
-              {{video.get_visualizacoes()}} views
-              {{video.get_curtidas()}} curtidas
+              <div class="row">
+                <div class="col align-self-start">
+                  {{video.get_visualizacoes()}} views
+                </div>
+                <div class="col align-self-end" style="text-align: end;">
+                  {{video.get_curtidas()}} curtidas
+                </div>
+              </div>
             </div>
           </div>
         </a>
       {% endfor %}
     </div>
 </div>
+
 <!--Lista de Categorias-->
 <div class="container">
   <div class="row justify-content-center"><h3>Categorias</h3></div>
@@ -51,6 +57,7 @@
     {% endfor %}
   </div>
 </div>
+<div class="blank"></div>
 <script>
   let xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {

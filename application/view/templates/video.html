@@ -1,5 +1,45 @@
 {% extends 'base.html' %}
 {% block title %}{{video.get_titulo()}}{% endblock %}
 {% block body %}
-<video src="{{url_for('static', filename=video.get_video_URL())}}"></video>
+<div class="container" style="align-items: center;">
+    <div class="embed-responsive-16by9">
+        <video class="embed-responsive-item" src="{{url_for('static', filename=video.get_video_URL())}}"  type="video/mp4" width="100%" controls></video>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-8">
+            <div class="card" style="width:100%;">
+                <div class="card-body">
+                    <h2 class="card-title">{{video.get_titulo()}}</h2>
+                    <div class="row">
+                        <div class="col align-self-start">
+                            {{video.get_data_publicacao()}}
+                        </div>
+                        <div class="col align-self-end" style="text-align: end;">
+                            <input type="submit" class="btn" value="Curtir">
+                            {{video.get_curtidas()}} curtidas
+                            {{video.get_visualizacoes()}} views
+                        </div>
+                      </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{video.get_descricao()}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col col-md-4">
+            {% if comentario %}
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">{{comentario.get_autor()}}</h5>
+                    <h6 class="card-subtitle">{{comentario.get_data_publicacao()}}</h6>
+                    <p class="card-text">{{comentario.get_conteudo()}}</p>
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
 {% endblock %}

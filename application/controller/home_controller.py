@@ -16,4 +16,5 @@ def home():
 @app.route("/ajax")
 def ajax():
     video_titulo = request.args.get("")
+    resultado_pesquisa = categoria_dao.get_video_by_titulo(video_titulo)
     return render_template("pesquisa.html", resultado_pesquisa = resultado_pesquisa)

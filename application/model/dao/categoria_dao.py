@@ -14,7 +14,7 @@ class CategoriaDAO:
         video_B00 = Video("videos/runeterra_1.mp4", "images/thumb_runeterra_1.png", "Rex Correnteza", "Legends of Runeterra", date(2020, 5, 28), categoria2, 3)
         video_B01 = Video("videos/runeterra_2.mp4", "images/thumb_runeterra_2.png", "Julgamento Neles", "Legends of Runeterra", date(2020, 5, 28), categoria2, 4)
         video_C00 = Video("videos/witcher_1.mp4", "images/thumb_witcher_1.png", "Anoitecer ft. Carpeado", "The Witcher 3", date(2020, 5, 28), categoria3, 5)
-        video_C01 = Video("videos/witcher_2.mp4", "images/thumb_witcher_2.png", "Tutorial TW3", "The Witcher", date(2020, 5, 28), categoria3, 6)
+        video_C01 = Video("videos/witcher_2.mp4", "images/thumb_witcher_2.png", "Tutorial TW3", "The Witcher 3", date(2020, 5, 28), categoria3, 6)
         
         self._todos_videos = [video_A00, video_A01, video_B00, video_B01, video_C00, video_C01]
         

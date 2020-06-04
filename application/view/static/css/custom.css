@@ -19,4 +19,11 @@ h3{
 
 .form{
     padding: 10px;
+
+}
+.card-header{
+    text-align: center;
+}
+.blank{
+    height: 2.5;
 }

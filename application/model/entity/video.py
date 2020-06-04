@@ -43,7 +43,7 @@ class Video:
     def get_curtidas(self):
         return self._curtidas
 
-    def get_comentario(self):
+    def get_comentarios(self):
         return self._comentarios
 
     class Comentario:
@@ -59,5 +59,5 @@ class Video:
         def get_conteudo(self):
             return self._conteudo
 
-        def data_publicacao(self):
+        def get_data_publicacao(self):
             return self._data_publicacao
