@@ -5,7 +5,7 @@
 <!-- Barra de Pesquisa -->
 <div class="container">
     <div class="col" id="form">
-        <form  action="{{url_for('ajax', titulo=titulo)}}" onsubmit="return submitForm(this);">
+        <form  action="{{url_for('ajax')}}" onsubmit="return submitForm(this);">
             <div class="form-row justify-content-center">
               <div class="col-9">
                 <label class="sr-only" for="inlineFormInput">Titulo
@@ -20,15 +20,15 @@
 <div class="container" id="pesquisa">
     <div class="row justify-content-center" id="feed">
       {% for video in videos_mais_curtidos %}
-        <a href="{{url_for('video', id=video.get_id())}}">
+        <a href="{{url_for('video', categoria_id=video.get_categoria_id() ,id=video.get_id())}}">
           <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="{{url_for('static', filename=video.get_thumbnail_URL())}}" alt="Card image cap">
             <div class="card-header">
               {{video.get_titulo()}}
             </div>
             <div class="card-body">
-              {{video.get_curtidas()}} curtidas
               {{video.get_visualizacoes()}} views
+              {{video.get_curtidas()}} curtidas
             </div>
           </div>
         </a>

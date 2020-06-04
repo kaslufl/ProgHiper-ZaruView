@@ -1,4 +1,4 @@
-{% for video in resultado_pesquisa %}
+{% if video %}
     <a href="{{url_for('video', id=video.get_id())}}">
         <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="{{url_for('static', filename=video.get_thumbnail_URL())}}" alt="Card image cap">
@@ -11,4 +11,8 @@
         </div>
         </div>
     </a>
-{% endfor %}
+{% else %}
+    <div class="alert alert-info" role="alert">
+    Nenhum vídeo encontrado!
+    </div>
+{% endif %}

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block title %}{{video.get_titulo()}}{% endblock %}
 {% block body %}
-
+<video src="{{url_for('static', filename=video.get_video_URL())}}"></video>
 {% endblock %}
