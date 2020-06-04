@@ -28,9 +28,12 @@ class Video:
     def get_data_publicacao(self):
         return self._data_publicacao
 
-    def get_categoria(self):
+    def get_categoria_titulo(self):
         return self._categoria.get_titulo()
-    
+
+    def get_categoria_id(self):
+        return self._categoria.get_id()
+
     def get_id(self):
         return self._id
 

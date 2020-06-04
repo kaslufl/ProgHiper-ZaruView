@@ -14,9 +14,6 @@ def home():
     return render_template("home.html", videos_mais_curtidos = videos_mais_curtidos, lista_categorias = lista_categorias)
 
 @app.route("/ajax")
-def ajax(titulo):
-    resultado_pesquisa = categoria_dao.listar_todos_videos()
-    for video in lst:
-        if video.get_titulo() == titulo:
-            resultado_pesquisa.append(video)
+def ajax():
+    video_titulo = request.args.get("")
     return render_template("pesquisa.html", resultado_pesquisa = resultado_pesquisa)
