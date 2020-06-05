@@ -8,5 +8,5 @@ from application import categoria_dao
 @app.route("/categoria/<categoria_id>/video/<id>")
 def video(categoria_id, id):
     video = categoria_dao.get_video_by_id(int(id))
-    
-    return render_template("video.html", video = video)
+    comentario_lista = video.get_categoria_titulo()
+    return render_template("video.html", video = video, comentario_lista = comentario_lista)
