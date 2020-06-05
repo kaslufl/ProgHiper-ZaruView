@@ -45,19 +45,6 @@ class Video:
 
     def get_comentarios(self):
         return self._comentarios
-
-    class Comentario:
-        
-        def __init__(self, autor, conteudo, data_publicacao):
-            self._autor = autor
-            self._conteudo = conteudo
-            self._data_publicacao = data_publicacao
-
-        def get_autor(self):
-            return self._autor
-
-        def get_conteudo(self):
-            return self._conteudo
-
-        def get_data_publicacao(self):
-            return self._data_publicacao
+    
+    def set_novo_comentario(self, comentario):
+        self._comentarios.append(comentario)

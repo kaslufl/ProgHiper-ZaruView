@@ -5,9 +5,8 @@ from application.model.entity.categoria import Categoria
 from application.model.entity.comentario import Comentario
 from application import categoria_dao
 
-
-@app.route("/categoria/<id>")
-def categoria(id):
-    categoria = categoria_dao.get_categoria_by_id(int(id))
-
-    return render_template("categoria.html", categoria = categoria)
+@app.route("/pesquisa")
+def pesquisa():
+    video_titulo = request.args.get('titulo')
+    video = categoria_dao.get_video_by_titulo(video_titulo)
+    return render_template("pesquisa.html", video = video)

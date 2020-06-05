@@ -1,5 +1,6 @@
 from application.model.entity.categoria import Categoria
 from application.model.entity.video import Video
+from application.model.entity.comentario import Comentario
 from datetime import date
 
 class CategoriaDAO:
@@ -57,3 +58,5 @@ class CategoriaDAO:
         if len(video_list) == 0:
             return None
         return video_list[0] 
+    
+    

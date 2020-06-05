@@ -2,6 +2,7 @@ from application import app
 from flask import render_template, request
 from application.model.entity.video import Video
 from application.model.entity.categoria import Categoria
+from application.model.entity.comentario import Comentario
 from application import categoria_dao
 
 
@@ -13,8 +14,3 @@ def home():
     lista_categorias = categoria_dao.listar_todos_categoria()
     return render_template("home.html", videos_mais_curtidos = videos_mais_curtidos, lista_categorias = lista_categorias)
 
-@app.route("/ajax")
-def ajax():
-    video_titulo = request.args.get("")
-    resultado_pesquisa = categoria_dao.get_video_by_titulo(video_titulo)
-    return render_template("pesquisa.html", resultado_pesquisa = resultado_pesquisa)

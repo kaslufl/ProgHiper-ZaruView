@@ -1,5 +1,40 @@
 {% extends 'base.html' %}
-{% block title %}ZaruView{% endblock %}
+{% block title %}{{categoria.get_titulo()}}{% endblock %}
 {% block body %}
+
+<div class="container">
+    <div class="row justify-content-center"><h1>{{categoria.get_titulo()}}</h4></div>
+    <div class="row">
+        <div class="col justify-content-center">
+            <img class="thumbnail" src="{{url_for('static', filename=categoria.get_thumbnail_URL())}}">
+        </div>
+        <div class="col align-self-center">
+            <div class="row justify-content-center">
+                <h3>{{categoria.get_descricao()}}</h3>     
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+    {% for video in categoria.get_lista_videos() %}
+        <a href="{{url_for('video', categoria_id=video.get_categoria_id() ,id=video.get_id())}}">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{url_for('static', filename=video.get_thumbnail_URL())}}" alt="Card image cap">
+            <div class="card-header">{{video.get_titulo()}}</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col align-self-start">
+                  {{video.get_visualizacoes()}} views
+                </div>
+                <div class="col align-self-end" style="text-align: end;">
+                  {{video.get_curtidas()}} curtidas
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+
+</div>
 
 {% endblock %}

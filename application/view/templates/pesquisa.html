@@ -1,5 +1,6 @@
+<div class="row justify-content-center">
 {% if video %}
-    <a href="{{url_for('video', id=video.get_id())}}">
+    <a href="{{url_for('pesquisa', categoria_id=video.get_categoria_id() ,id=video.get_id())}}">
         <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="{{url_for('static', filename=video.get_thumbnail_URL())}}" alt="Card image cap">
         <div class="card-header">
@@ -12,7 +13,8 @@
         </div>
     </a>
 {% else %}
-    <div class="alert alert-info" role="alert">
+<div class="alert alert-info" role="alert">
     Nenhum vídeo encontrado!
-    </div>
+</div>
 {% endif %}
+</div>

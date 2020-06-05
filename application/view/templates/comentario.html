@@ -1,0 +1,18 @@
+<div class="row justify-content-center">
+    {% if comentario_lista %}
+        {% for comentario in comentario_lista %}
+            <div class="card" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">{{comentario.get_autor()}}</h5>
+                    <p class="card-text">{{comentario.get_conteudo()}}</p>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+    <div class="alert alert-info" role="alert">
+        <div class="card-body">
+            Nenhum comentário encontrado
+        </div>
+    </div>
+    {% endif %}
+</div>

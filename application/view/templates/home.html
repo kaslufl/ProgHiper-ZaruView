@@ -4,7 +4,7 @@
 <!-- Barra de Pesquisa -->
 <div class="container">
     <div class="col" id="form">
-        <form  action="{{url_for('ajax')}}" onsubmit="return submitForm(this);">
+        <form onsubmit="get_video(this.name);">
             <div class="form-row justify-content-center">
               <div class="col-9">
                 <label class="sr-only" for="inlineFormInput">Titulo
@@ -16,8 +16,11 @@
     </div>
 </div>
 <!-- Lista de Videos Mais Curtidos -->
-<div class="container" id="pesquisa">
-    <div class="row justify-content-center" id="feed">
+<div class="container">
+  <div id="pesquisa">
+    
+  </div>
+    <div class="row justify-content-center">
       {% for video in videos_mais_curtidos %}
         <a href="{{url_for('video', categoria_id=video.get_categoria_id() ,id=video.get_id())}}">
           <div class="card" style="width: 18rem;">
@@ -57,19 +60,18 @@
     {% endfor %}
   </div>
 </div>
-<div class="blank"></div>
 <script>
-  let xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
+    var get_video = function(titulo){
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
     if(xhr.readyState == 4 && xhr.status == 200) {
-      document.getElementById("feed").innerHTML = xhr.response;
+      document.getElementById("pesquisa").innerHTML = xhr.response;
       }
     }
-  formElement.getAttribute('name') = titulo
-  xhr.open("GET", "/ajax");
+  xhr.open("GET", "/pesquisa?titulo="+titulo, titulo);
   xhr.setRequestHeader("Accept", "text/html")
   xhr.send();
-
+  }
 </script>
 
 {% endblock %}

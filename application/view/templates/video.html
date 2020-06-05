@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-8">
-            <div class="card" style="width:100%;">
+            <div class="card" style="width:98%;">
                 <div class="card-body">
                     <h2 class="card-title">{{video.get_titulo()}}</h2>
                     <div class="row">
@@ -29,16 +29,19 @@
             </div>
         </div>
         <div class="col col-md-4">
-            {% if comentario %}
-            <div class="card" style="width: 100%;">
-                <div class="card-body">
-                    <h5 class="card-title">{{comentario.get_autor()}}</h5>
-                    <h6 class="card-subtitle">{{comentario.get_data_publicacao()}}</h6>
-                    <p class="card-text">{{comentario.get_conteudo()}}</p>
+           <div id="comentarios">
+               
+           </div>
+            <form>
+                <div class="form-row">
+                  <div class="col">
+                    <input type="autor" class="form-control" placeholder="Seu Nome">
+                  </div>
+                  <div class="col">
+                    <input type="conteudo" class="form-control" placeholder="Comentário">
+                  </div>
                 </div>
-            </div>
-            {% endif %}
-
+              </form>
         </div>
     </div>
 </div>

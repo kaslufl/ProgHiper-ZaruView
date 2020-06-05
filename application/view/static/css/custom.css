@@ -7,7 +7,7 @@ a:hover {
     color:#4b0082;
     text-decoration: none;
 }
-h3{
+h1,h2,h3,h4,h5,h6{
     color:#ffffff;
 }
 .fab {
@@ -24,6 +24,7 @@ h3{
 .card-header{
     text-align: center;
 }
-.blank{
-    height: 2.5;
+
+.thumbnail{
+    max-width: 100%;
 }
